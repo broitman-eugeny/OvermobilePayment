@@ -13,7 +13,7 @@ public class Payment {
     @Id
     private String id;
 
-    private long userId;
+    private Long userId;
 
     private BigDecimal sum;
 }

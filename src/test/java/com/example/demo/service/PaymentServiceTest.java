@@ -33,7 +33,7 @@ class PaymentServiceTest {
 
         Payment payment = new Payment();
         payment.setId("1");
-        payment.setUserId(1);
+        payment.setUserId(1L);
         payment.setSum(BigDecimal.valueOf(125));
 
         Optional<Payment> dbPayment = Optional.of(payment);
@@ -53,7 +53,7 @@ class PaymentServiceTest {
 
         Payment payment = new Payment();
         payment.setId("1");
-        payment.setUserId(1);
+        payment.setUserId(1L);
         payment.setSum(BigDecimal.valueOf(125));
         Optional<Payment> dbPayment = Optional.empty();
 
@@ -72,7 +72,7 @@ class PaymentServiceTest {
 
         Payment payment = new Payment();
         payment.setId("1");
-        payment.setUserId(1);
+        payment.setUserId(1L);
         payment.setSum(BigDecimal.valueOf(125));
 
         Mockito.doThrow(RuntimeException.class).when(repository).findById(payment.getId());

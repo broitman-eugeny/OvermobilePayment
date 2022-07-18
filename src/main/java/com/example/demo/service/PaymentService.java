@@ -25,6 +25,8 @@ public class PaymentService {
 
         try {
 
+            validate(payment);
+
             synchronized (PaymentService.class) {
 
                 Optional<Payment> dbPayment = repository.findById(payment.getId());
@@ -45,5 +47,21 @@ public class PaymentService {
         }
 
         return status;
+    }
+
+    private void validate(Payment payment) {
+
+        if (payment.getId() == null) {
+
+            throw new PaymentException("Id is null");
+        }
+
+        if (payment.getUserId() == null) {
+            throw new PaymentException("UserId is null");
+        }
+
+        if (payment.getSum() == null) {
+            throw new PaymentException("Sum is null");
+        }
     }
 }
